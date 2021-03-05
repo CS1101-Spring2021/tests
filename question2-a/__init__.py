@@ -9,4 +9,4 @@ def compiles():
 @check50.check(compiles)
 def question2a():
   """question2-a runs"""
-  check50.run("./question2-a").stdin("15 5").stdout("5\n").exit(0)
+  check50.run("./question2-a").stdin("15 5", prompt=False).stdout("5\n").exit(0)

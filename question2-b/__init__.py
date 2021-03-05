@@ -3,10 +3,15 @@ import check50
 import check50.c
 
 @check50.check()
+def exists():
+  """question2-b exists"""
+  check50.exists("question2-b.c")
+
+@check50.check(exists)
 def compiles():
   """question2-b compiles"""
   check50.c.compile("question2-b.c")
-  
+
 @check50.check(compiles)
 def question2b():
   """question2-b runs"""

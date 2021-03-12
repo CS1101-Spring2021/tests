@@ -19,4 +19,4 @@ def question4found():
 @check50.check(question4found)
 def question4notfound():
   """existing number works"""
-  check50.run("./question4").stdin("10\n49 40 26 34 16 35 19 14 17 3\n19", prompt=False).stdout("19 found. [7-3] comparisons made.\n", regex=True).exit(0)
+  check50.run("./question4").stdin("10\n49 40 26 34 16 35 19 14 17 3\n19", prompt=False).stdout("19 found. [7-4] comparisons made.\n", regex=True).exit(0)

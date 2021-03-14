@@ -17,4 +17,4 @@ def compiles():
 @check50.check(compiles)
 def question1():
     """question1 runs"""
-    check50.run("./question1").stdin("4").stdout("1) add at beginning\n2) add at end\n3) add after a particular node\n4) delete at beginning\n5) delete at end\n6) delete a particular node\n7) search a value\n8) traverse and display whole list\n").stdin("1\napple\n1\norange\n2\npear\n8").stdout("orange -> apple -> pear -> \n").exit(0)
+    check50.run("./question1").stdin("4").stdin("1\napple\n1\norange\n2\npear\n8").stdout("orange -> apple -> pear -> \n").exit(0)

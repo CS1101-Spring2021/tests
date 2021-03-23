@@ -5,7 +5,7 @@ import check50.c
 @check50.check()
 def exists():
     """question3 exists"""
-    check50.exists("question1.c")
+    check50.exists("question3.c")
 
 
 @check50.check(exists)
@@ -17,4 +17,5 @@ def compiles():
 @check50.check(compiles)
 def question3():
     """question3 runs"""
-    check50.run("./question3").exit(0)
+    check50.run("./question3").stdin("4").stdin("1\napple").stdin("1\norange").stdin(
+        "2\npear").stdin("8").stdout("orange -> apple -> pear").exit(0)

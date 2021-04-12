@@ -17,7 +17,7 @@ def compiles():
 @check50.check(compiles)
 def question2():
     """question2 runs"""
-    check50.run("./question2").stdin("13").stdin("5").stdout("1").stdin("1\napple").stdin(
+    check50.run("./question2").stdin("14").stdin("5").stdout("1").stdin("1\napple").stdin(
         "1\norange").stdin("6").stdout("orange\napple").stdin("2").stdout("orange").stdin(
             "3").stdout("apple").stdin("2").stdout("apple").stdin("3").stdout("-1").stdin(
                 "1\nsparrow").stdin("1\npigeon").stdin("4").stdout("0").stdin("1\ncrow").stdin(

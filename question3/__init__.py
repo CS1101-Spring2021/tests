@@ -21,5 +21,5 @@ def question3():
         "1\norange").stdin("1\nbanana").stdin("7").stdout("apple -> orange -> banana").stdin(
             "3").stdout("apple").stdin("4").stdout("banana").stdin("2").stdin("1\nmelon").stdin(
                 "3").stdout("orange").stdin("1\npigeon").stdin("5").stdin("5").stdout("1").stdin(
-                    "2").stdin("5").stdout("0").stdin("1\nparrot").stdin("7").stdout(
+                    "2").stdin("5").stdout("0").stdin("1\nparrot\nEnter choice> ").stdin("7", prompt=False).stdout(
                         "banana -> melon -> pigeon -> parrot").exit(0)

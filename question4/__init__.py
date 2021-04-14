@@ -17,4 +17,4 @@ def compiles():
 @check50.check(compiles)
 def question4():
     """question4 runs"""
-    check50.run("./question4").stdin("ab+cd-*ef-/", prompt=False).stdout("a\na -> b\n(a + b)[\s?]\n(a + b) -> c[\s?]\n(a + b) -> c -> d\n(a + b) -> (c - d)[\s?]\n((a + b) * (c - d))[\s?]\n((a + b) * (c - d)) -> e[\s?]\n((a + b) * (c - d)) -> e -> f[\s?]\n((a + b) * (c - d)) -> (e - f)[\s?]\n(((a + b) * (c - d)) / (e - f))[\s?]", regex=True).exit(0)
+    check50.run("./question4").stdin("ab+cd-*ef-/", prompt=False).stdout("a\na -> b\n(a + b)[\s?]\n(a + b) -> c[\s?]\n(a + b) -> c -> d[\s?]\n(a + b) -> (c - d)[\s?]\n((a + b) * (c - d))[\s?]\n((a + b) * (c - d)) -> e[\s?]\n((a + b) * (c - d)) -> e -> f[\s?]\n((a + b) * (c - d)) -> (e - f)[\s?]\n(((a + b) * (c - d)) / (e - f))[\s?]", regex=True).exit(0)

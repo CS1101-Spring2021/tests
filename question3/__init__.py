@@ -1,25 +1,26 @@
 import check50
-import check50.c
+from re import match
+
+
+# Question3 Checks
+q3_test_str1 = "72 435 6 39 230 7 90"
+q3_expected1 = "6, 7, 39, 72, 90, 230, 435"
 
 
 @check50.check()
-def exists():
-    """question3 exists"""
-    check50.exists("question3.c")
+def q3_exists():
+    """Does q3 exist?"""
+    check50.exists("question3.py")
 
 
-@check50.check(exists)
-def compiles():
-    """question3 compiles"""
-    check50.c.compile("question3.c")
+@check50.check(q3_exists)
+def q3_check_test1():
+    """Send num list to program"""
+    actual = check50.run("python3 question3.py").stdin(
+        q3_test_str1, prompt=False).stdout()
 
-
-@check50.check(compiles)
-def question3():
-    """question3 runs"""
-    check50.run("./question3").stdin("4").stdin("16").stdin("6").stdout("1").stdin("1\napple").stdin(
-        "1\norange").stdin("1\nbanana").stdin("7").stdout("apple -> orange -> banana").stdin(
-            "3").stdout("apple").stdin("4").stdout("banana").stdin("2").stdin("1\nmelon").stdin(
-                "3").stdout("orange").stdin("1\npigeon").stdin("5").stdin("5").stdout("1").stdin(
-                    "2").stdin("5").stdout("0").stdin("1\nparrot").stdin("7").stdout(
-                        "banana -> melon -> pigeon -> parrot").exit(0)
+    helptxt = ""
+    if match(f"{q3_expected1}, ", actual):
+        helptxt = "Did you add an extra comma (,) and a space to the end of tyour output string?"
+    if not match(q3_expected1, actual):
+        raise check50.Mismatch(q3_expected1, actual, help=helptxt)

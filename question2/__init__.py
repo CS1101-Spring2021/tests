@@ -1,24 +1,40 @@
 import check50
-import check50.c
+from re import match
+
+
+q2_test_str1 = "apple orange banana custard-apple pear guava"
+# Question2 Checks
 
 
 @check50.check()
-def exists():
-    """question2 exists"""
-    check50.exists("question2.c")
+def q2_exists():
+    """Does q2 exist?"""
+    check50.exists("question2.py")
+    check50.include("q2.input", "q2.output")
 
 
-@check50.check(exists)
-def compiles():
-    """question2 compiles"""
-    check50.c.compile("question2.c")
+@check50.check(q2_exists)
+def q2_send_inputfile():
+    """Send list to q2"""
+    check50.run("python3 question2.py").stdin(
+        q2_test_str1, prompt=False).exit(0)
 
 
-@check50.check(compiles)
-def question2():
-    """question2 runs"""
-    check50.run("./question2").stdin("14").stdin("5").stdout("1").stdin("1\napple").stdin(
-        "1\norange").stdin("6").stdout("orange\napple").stdin("2").stdout("orange").stdin(
-            "3").stdout("apple").stdin("2").stdout("apple").stdin("3").stdout("-1").stdin(
-                "1\nsparrow").stdin("1\npigeon").stdin("4").stdout("0").stdin("1\ncrow").stdin(
-                    "3").stdout("crow").stdin("6").stdout("crow\npigeon\nsparrow").exit(0)
+@check50.check(q2_send_inputfile)
+def q2_outputfile_exists():
+    """Is the output file generated"""
+    check50.exists("q2_output.txt")
+
+
+@check50.check(q2_outputfile_exists)
+def q2_read_outputfile1():
+    """Output file has the replaced strings"""
+    expected = open('q2.output').read().lower()
+    actual = open('q2_output.txt').read().lower()
+
+    helptext = ""
+    if "\n" not in actual:
+        helptext = "Did you forget the newlines after every list item?"
+
+    if not match(expected, actual):
+        raise check50.Mismatch(expected, actual, help=helptext)

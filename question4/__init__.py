@@ -13,7 +13,7 @@ def q4_exists():
 
 @check50.check(q4_exists)
 def q4_check_output():
-    """Send paragraph to q4 and check output"""
+    """Send paragraph to q4 and check analysis output"""
     expected = open('q4.output').read()
     actual = check50.run("python3 question4.py").stdout()
     actual = str(actual)

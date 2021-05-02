@@ -15,7 +15,7 @@ def q3_exists():
 
 @check50.check(q3_exists)
 def q3_check_test1():
-    """Send num list to program"""
+    """Test with num list and check for sorted output string"""
     actual = check50.run("python3 question3.py").stdin(
         q3_test_str1, prompt=False).stdout()
 
